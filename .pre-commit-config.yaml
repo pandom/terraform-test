@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/terraform-docs/terraform-docs
+    rev: "v0.16.0"
+    hooks:
+      - id: terraform-docs-go
+        args: ["markdown", "table", "--output-file", "README.md", "./"]
+- repo: local
+  hooks:
+  - id: check_secrets
+    name: Check for secrets
+    entry: precommit-scripts/check-secrets.sh
+    language: script
+    verbose: true
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.83.4 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+  - id: terraform_fmt
