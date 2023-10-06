@@ -1,4 +1,5 @@
-set -euo pipefail
+#!/bin/sh
+#set -euo pipefail
 
 BLACK_ON='\033[40m'
 RED_TEXT='\033[0;31m'
